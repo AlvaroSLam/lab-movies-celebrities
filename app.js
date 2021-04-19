@@ -8,7 +8,7 @@ const logger = require("morgan");
 const path = require("path");
 
 const app = express();
-
+const PORT = 3000
 // require database configuration
 require("./configs/db.config");
 
@@ -33,5 +33,15 @@ app.locals.title = "Express - Generated with IronGenerator";
 //      |  |  |
 //      V  V  V
 app.use("/", require("./routes/index.routes"));
+
+const celebRoutes = require('./routes/celebrities.routes')
+app.use('/', celebRoutes)
+
+const moviesRoutes = require('./routes/movies.routes')
+app.use('/', moviesRoutes)
+
+app.listen(PORT, () =>{
+    console.log(`Listening on port ${PORT}`)
+})
 
 module.exports = app;
