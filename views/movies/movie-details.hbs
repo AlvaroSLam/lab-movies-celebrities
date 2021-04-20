@@ -1,0 +1,9 @@
+<h2>MOVIE DETAILS</h2>
+
+<h3>{{movie.title}}</h3>
+
+<ul>
+    {{#each movie.cast}}
+        <li>{{this.name}} is a {{this.occupation}}</li>
+    {{/each}}
+</ul>
